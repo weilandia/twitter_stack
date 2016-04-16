@@ -14,6 +14,10 @@ class TwitterService
     client.user_timeline(user_screen_name, {count: 25, include_rts: true})
   end
 
+  def user(user_screen_name)
+    client.user(user_screen_name)
+  end
+
   private
     def client
       @_client

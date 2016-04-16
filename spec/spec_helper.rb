@@ -9,11 +9,11 @@ module OmniauthMock
       uid: "12345",
       extra: {
         raw_info: {
-          screen_name: "weilandia",
+          screen_name: ENV['TWITTER_USER_SCREEN_NAME'],
         }
       },
       info:
-        { name: "Nick Weiland",
+        { name: ENV['TWITTER_USER_NAME'],
           email: nil,
           location: "",
           image: "http://pbs.twimg.com/profile_images/666098907974270976/xbPFH5qZ_normal.jpg",
@@ -21,8 +21,8 @@ module OmniauthMock
           "Really just trying to do some good in this place.",
           urls: {"Website"=>nil, Twitter: "https://twitter.com/weilandia"}},
       credentials: {
-        token: ENV['TWITTER_TEST_KEY'],
-        secret:ENV['TWITTER_TEST_SECRET']
+        token: ENV['TWITTER_USER_OAUTH_TOKEN'],
+        secret:ENV['TWITTER_USER_SECRET_TOKEN']
       }
     })
   end
