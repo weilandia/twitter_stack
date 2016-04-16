@@ -1,0 +1,16 @@
+<ul class="nav pull-left">
+  <% if current_user  %>
+    <li class="dropdown pull-right nav-icon nav-current-user">
+      <span data-toggle="dropdown" style="color:#777; margin-top: 5px;" class="dropdown-toggle"><%= image_tag session[:user_info]["image"], class:"avatar" %>
+      </span>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to current_user.screen_name.downcase, user_path(current_user.screen_name) %>
+        </li>
+        <li>
+          <%= link_to "logout", logout_path %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
