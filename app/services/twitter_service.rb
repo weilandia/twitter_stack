@@ -15,7 +15,9 @@ class TwitterService
   end
 
   def user(user_screen_name)
-    client.user(user_screen_name)
+    if client.user?(user_screen_name)
+      client.user(user_screen_name)
+    end
   end
 
   private
