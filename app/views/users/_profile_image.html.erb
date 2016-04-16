@@ -1,0 +1,3 @@
+<div class="profile-image">
+  <%= image_tag @twitter_service.user(@user).profile_image_url.to_s.gsub("_normal", ""), class:"img-circle" %>
+</div>

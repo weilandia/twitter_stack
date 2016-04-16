@@ -1,14 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="instructions">
-        <h5>dfkslajfkldsjafkdjslkafjkdsjaflkjdksajfkldjsakfjkldsjafkjdlsakfjdskfjkdsajfkdsjafkjdskajfkdsjakfjdksl</h5>
+<div class="container user-show-container">
+  <div class="row row-centered">
+    <div class="col-xs-10 col-sm-5 col-centered-sm">
+      <div class="row user">
+        <div class="col-xs-12 text-center">
+          <%= render partial: "profile_image" %>
+        </div>
+        <div class="col-xs-12 profile-header">
+          <span class="name"><%= @twitter_service.user(@user).name %> | <%= link_to "@#{@twitter_service.user(@user).screen_name}", "https://twitter.com/#{@user}", id:"name-link" %></span>
+        </div>
+      </div>
+      <div class="row">
+        <p class="bio"><%= @twitter_service.user(@user).description %></p>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-
+    <div class="col-xs-12 col-sm-7 col-centered">
+      <% @twitter_service.user_timeline(@user).each_with_index do |tweet, index| %>
+      <div class="col-xs-12 float-right col">
+        <% poro_tweet = Tweet.new(tweet) %>
+        <div id="<%= index %>-tweet" class="tweet thumbnail">
+          <h5><%= poro_tweet.text.html_safe %><br><span class="tweet-date"><%= tweet.created_at.strftime("%B %-d, %Y") %></span></h5>
+          <% poro_tweet.media.each do |object| %>
+            <%= object.html_safe %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
