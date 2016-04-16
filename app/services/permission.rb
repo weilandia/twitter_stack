@@ -29,7 +29,7 @@ class Permission
 
     def user_permissions
       return true if controller == 'sessions' && action.in?(%w(destroy))
-      return true if controller == 'users' && action.in?(%w(show))
+      return true if controller == 'users' && action.in?(%w(show search))
       return true if controller == 'static_pages' && action.in?(%w(home))
     end
 
