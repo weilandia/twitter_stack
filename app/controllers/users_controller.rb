@@ -8,4 +8,8 @@ class UsersController < ApplicationController
       flash[:info] = "Hey, that person doesn't exist."
     end
   end
+
+  def search
+    redirect_to user_path(params[:screen_name])
+  end
 end
