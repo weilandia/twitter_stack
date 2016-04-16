@@ -30,6 +30,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers', require: false
   gem 'coveralls', require: false
+  gem 'responders', '~> 2.0'
 end
 
 group :development do

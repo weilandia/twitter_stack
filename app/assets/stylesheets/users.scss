@@ -1,6 +1,21 @@
-.instructions {
-  margin-top: 65px;
-  margin-bottom: 25px;
+.row-centered {
+    text-align:center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    text-align:left;
+    margin-right:-4px;
+}
+
+@media (max-width:767px) {
+  .col-centered-sm {
+    display:inline-block;
+    float:none;
+    text-align:center;
+    margin-right:-4px;
+  }
 }
 
 .checked-repos-header {
@@ -14,4 +29,64 @@
 .btn-already {
   background-color: #34495e;
   color: #fff;
+}
+
+.profile-image {
+  margin-bottom: 20px;
+  padding: 0;
+  img {
+    height: 115px;
+    width: auto;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+.user-show-container {
+  margin-top: 75px;
+}
+
+.profile-header {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  .name {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+
+.bio {
+  margin-top: 15px;;
+  margin-bottom: 15px;;
+}
+
+.tweet {
+  overflow:auto;
+  h5, h6 {
+    margin-left: 5px;
+  }
+  .hashtag {
+    color: #16a085;
+  }
+  .user_mention {
+    color: #c0392b;
+  }
+  .link {
+    color: #8e44ad;
+  }
+  .tweet-image {
+    img {
+    height: 50%;
+    width:50%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  }
+  .tweet-date {
+    font-size: 90%;
+    font-weight: 300;
+  }
 }

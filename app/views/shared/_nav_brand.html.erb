@@ -1,4 +1,9 @@
 <div class="navbar-header pull-left">
-    <a class="logo-link" href="/"><%= image_tag("logo.png", id:"nav-logo_img", class:"logo-img") %>
-    <span class="nav-logo-git co-name">twitter</span><span class="nav-logo-access co-name">Stack</span></a><br>
+    <% if current_user %>
+      <span class="logo-link"><%= image_tag("logo.png", id:"nav-logo_img", class:"logo-img") %>
+      <span class="nav-logo-git co-name">twitter</span><span class="nav-logo-access co-name">Stack</span></span><br>
+    <% else %>
+      <a class="logo-link" href="/"><%= image_tag("logo.png", id:"nav-logo_img", class:"logo-img") %>
+      <span class="nav-logo-git co-name">twitter</span><span class="nav-logo-access co-name">Stack</span></a><br>
+    <% end %>
 </div>
