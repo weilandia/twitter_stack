@@ -11,13 +11,13 @@ class TwitterService
   end
 
   def user_timeline(user_screen_name)
-    Rails.cache.fetch("tweets/#{user_screen_name}", :expires_in => 10.hours) do
+    Rails.cache.fetch("tweets/#{user_screen_name}", :expires_in => 5.minutes) do
       client.user_timeline(user_screen_name, {count: 25, include_rts: true})
     end
   end
 
   def user(user_screen_name)
-    Rails.cache.fetch("#{user_screen_name}", :expires_in => 10.hours) do
+    Rails.cache.fetch("#{user_screen_name}", :expires_in => 5.minutes) do
       if client.user?(user_screen_name)
         client.user(user_screen_name)
       end
