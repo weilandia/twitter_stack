@@ -19,7 +19,7 @@
       <div class="col-xs-12 float-right col">
         <% poro_tweet = Tweet.new(tweet) %>
         <div id="<%= index %>-tweet" class="tweet thumbnail">
-          <h5><%= poro_tweet.text.html_safe %><br><span class="tweet-date"><%= tweet.created_at.strftime("%B %-d, %Y |%l:%M%P") %></span></h5>
+          <h5><%= poro_tweet.text.html_safe %><br><span class="tweet-date"><%= tweet.created_at.to_time.strftime("%B %-d, %Y |%l:%M%P") %></span></h5>
           <% poro_tweet.media.each do |object| %>
             <%= object.html_safe %>
           <% end %>
