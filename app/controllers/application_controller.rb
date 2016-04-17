@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authorize!
     unless authorized?
-      flash[:info] = "Please signin first:)"
+      flash[:info] = "Please sign in first:)"
       redirect_to root_path
     end
   end

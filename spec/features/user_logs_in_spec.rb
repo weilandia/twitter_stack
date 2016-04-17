@@ -5,9 +5,9 @@ RSpec.feature "user logs in" do
     VCR.use_cassette("sessions.login") do
       stub_omniauth
       visit "/"
-      click_on "signin with twitter"
+      click_on "sign in with twitter"
       expect(page).to have_content("logout")
-      expect(page).to_not have_content("signin with twitter")
+      expect(page).to_not have_content("sign in with twitter")
     end
  end
 end

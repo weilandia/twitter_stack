@@ -5,7 +5,7 @@ RSpec.feature "user logs in and sees last 25 tweets" do
     VCR.use_cassette("user.tweets") do
       stub_omniauth
       visit "/"
-      click_on "signin with twitter"
+      click_on "sign in with twitter"
       expect(page).to have_css('div#1-tweet')
       expect(page).to have_css('div#5-tweet')
       expect(page).to have_css('div#10-tweet')

@@ -5,7 +5,7 @@ RSpec.feature "user logs in and sees profile info" do
     VCR.use_cassette("user.info") do
       stub_omniauth
       visit "/"
-      click_on "signin with twitter"
+      click_on "sign in with twitter"
       within "div.user" do
         expect(page).to have_content(ENV['TWITTER_USER_NAME'])
         expect(page).to have_link(ENV['TWITTER_USER_SCREEN_NAME'])

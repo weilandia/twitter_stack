@@ -5,7 +5,7 @@ RSpec.feature "user logs in and views other users" do
     VCR.use_cassette("different_user_show") do
       stub_omniauth
       visit "/"
-      click_on "signin with twitter"
+      click_on "sign in with twitter"
       fill_in "screen_name", with: "stackcommerce"
       click_on "search for users"
 
@@ -27,7 +27,7 @@ RSpec.feature "user logs in and views other users" do
     VCR.use_cassette("invalid_user_show") do
       stub_omniauth
       visit "/"
-      click_on "signin with twitter"
+      click_on "sign in with twitter"
       fill_in "screen_name", with: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       click_on "search for users"
 

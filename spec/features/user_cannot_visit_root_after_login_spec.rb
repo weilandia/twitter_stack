@@ -5,7 +5,7 @@ RSpec.feature "user logs in then visits root" do
     VCR.use_cassette("sessions.login") do
       stub_omniauth
       visit "/"
-      click_on "signin with twitter"
+      click_on "sign in with twitter"
 
       expect(current_path).to eq(user_path(ENV['TWITTER_USER_SCREEN_NAME']))
 
