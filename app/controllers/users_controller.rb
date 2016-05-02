@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @twitter_service = TwitterService.new(current_user)
+    @twitter_service = TwitterService.new(current_user, params[:max_id])
     @user = params[:screen_name]
     if !@twitter_service.user(@user) || @twitter_service.user(@user).protected?
       redirect_to user_path(current_user.screen_name)
