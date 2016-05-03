@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :check_previous
+  before_filter :check_search
   before_filter :store_history
 
   def show
@@ -20,6 +21,14 @@ class UsersController < ApplicationController
   end
 
   private
+  def check_search
+    session[:user_timeline] ||=  params[:screen_name]
+    if session[:user_timeline] != params[:screen_name]
+      session[:user_timeline] = nil
+      session[:history].clear
+    end
+  end
+
   def check_previous
     if params[:prev]
       session[:history].pop if session[:history].length > 1
