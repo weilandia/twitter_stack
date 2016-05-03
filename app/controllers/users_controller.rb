@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     if !@twitter_service.user(@user) || @twitter_service.user(@user).protected?
       redirect_to user_path(current_user.screen_name)
       flash[:info] = "Hey, either that person doesn't exist, or they have a private account."
+    else
+      @tweets = @twitter_service.user_timeline(@user)
+      redirect_to user_path(@user) if @tweets.empty?
     end
   end
 
