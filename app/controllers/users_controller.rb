@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :check_previous
+  before_filter :store_history
 
   def show
     @twitter_service = TwitterService.new(current_user, params[:max_id])
@@ -10,6 +12,21 @@ class UsersController < ApplicationController
   end
 
   def search
+    session[:history].clear
     redirect_to user_path(params[:screen_name])
+  end
+
+  private
+  def check_previous
+    if params[:prev]
+      session[:history].pop if session[:history].length > 1
+      redirect_to session[:history].last
+    end
+  end
+
+  def store_history
+    session[:history] ||= []
+    session[:history] << request.url
+    session[:history].uniq!
   end
 end

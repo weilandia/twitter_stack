@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="tweet-pagination">
+      <%= link_to "next", user_path(@user, {max_id: tweets.last.id - 1}) %> | <%= link_to "prev", user_path(@user, {prev: true}) %>
+    </div>
+  </div>
+</div>

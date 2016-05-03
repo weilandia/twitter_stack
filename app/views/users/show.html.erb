@@ -12,11 +12,12 @@
       <div class="row">
         <p class="bio"><%= @twitter_service.user(@user).description %></p>
       </div>
+      <% tweets = @twitter_service.user_timeline(@user) %>
       <%= render partial: "search_form" %>
+      <%= render partial: "pagination", locals: {tweets: tweets} %>
     </div>
     <div class="col-xs-12 col-sm-7 col-centered">
-      <%= link_to "next", user_path(@user, {max_id: @twitter_service.user_timeline(@user).last.id}) %>
-      <% @twitter_service.user_timeline(@user).each_with_index do |tweet, index| %>
+      <% tweets.each_with_index do |tweet, index| %>
       <div class="col-xs-12 float-right col">
         <% poro_tweet = Tweet.new(tweet) %>
         <div id="<%= index %>-tweet" class="tweet thumbnail">
